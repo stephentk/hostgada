@@ -35,7 +35,8 @@ export class AuthService {
     } as User);
 
     const otp = await this.otpService.generateOtp(user.id);
-   await this.zohoMailService.sendOtp(email, otp);
+    console.log("otp",otp)
+  // await this.zohoMailService.sendOtp(email, otp);
     user.completeProfile = false
 
     await user.save()
