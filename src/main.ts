@@ -18,6 +18,9 @@ async function bootstrap() {
   await app.listen(process.env.PORT ||5432);
   config();
 
+  global.gc && global.gc(); // Force garbage collection if enabled
+
+
 
 
 }
