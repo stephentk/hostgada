@@ -19,8 +19,10 @@ import { JwtAuthGuard } from './authentication/jwt.guard';
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: process.env.DB_NAME,
+      logging: false, // disable logging of SQL queries
+   // prevents auto-syncing of models on startup
       autoLoadModels: true,
-      synchronize: true,
+      synchronize: false,
       dialectOptions: {
         ssl: {
           require: true,

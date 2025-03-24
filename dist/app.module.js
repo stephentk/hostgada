@@ -30,8 +30,9 @@ exports.AppModule = AppModule = __decorate([
                 username: process.env.DB_USER,
                 password: process.env.DB_PASS,
                 database: process.env.DB_NAME,
+                logging: false,
                 autoLoadModels: true,
-                synchronize: true,
+                synchronize: false,
                 dialectOptions: {
                     ssl: {
                         require: true,
