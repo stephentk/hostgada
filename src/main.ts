@@ -15,7 +15,8 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   const jwtAuthGuard = app.get(JwtAuthGuard);
   app.useGlobalGuards(jwtAuthGuard);
-  await app.listen(process.env.PORT ||5432);
+  const port = process.env.PORT || 10000;
+  await app.listen(port, '0.0.0.0');
   config();
 
   global.gc && global.gc(); // Force garbage collection if enabled

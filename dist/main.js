@@ -11,8 +11,10 @@ async function bootstrap() {
     app.useGlobalPipes(new common_1.ValidationPipe());
     const jwtAuthGuard = app.get(jwt_guard_1.JwtAuthGuard);
     app.useGlobalGuards(jwtAuthGuard);
-    await app.listen(process.env.PORT || 5432);
+    const port = process.env.PORT || 10000;
+    await app.listen(port, '0.0.0.0');
     (0, dotenv_1.config)();
+    global.gc && global.gc();
 }
 bootstrap();
 //# sourceMappingURL=main.js.map
